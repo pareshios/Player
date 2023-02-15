@@ -4,7 +4,7 @@
 
 In simple, [revenueCat](https://www.revenuecat.com/docs/welcome) is a wrapper around Appstore/PlayStore subscription integration flows. Everything you need to implement and manage in-app purchases and subscriptions
 
-## Configure Subscriptions in [App Store Connect](https://appstoreconnect.apple.com/apps/1572235571/appstore/subscriptions)
+## Configure Subscriptions in App Store Connect [&#x270D;](https://appstoreconnect.apple.com/apps/1572235571/appstore/subscriptions)
 
 Note: Add tax and billing information in the app store connect before configuring products otherwise you will not be able to get any product list from the store API. As revenueCat will throw an error while fetching the products list using their SDK
 
@@ -28,17 +28,17 @@ Configure the introductory, Promotional, and offer code with a subscription if y
 2. Pay-as-you-go — The customer pays a reduced rate, each period, for a number of periods, e.g. $0.99 per month for 3 months. Allowed durations are 1-12 months. Can only be specified in months.
 3. Free — This is analogous to a free trial, the user receives 1 of a specified period free. The allowed durations are 3 days, 1 week, 2 weeks, 1 month, 2 months, 3 months, 6 months, and 1 year.
 
-* [Offer code] (https://www.revenuecat.com/docs/ios-subscription-offers#offer-codes)
+** [Offer code] (https://www.revenuecat.com/docs/ios-subscription-offers#offer-codes)
 
 **Note:** - Since launch, Apple's in-app Offer Code redemption sheet has proven to be extremely unstable. For example, the sheet may not connect, may not dismiss after a successful redemption, and may not accept valid codes. Additionally, sandbox and TestFlight behavior has been seen to be inconsistent.
 A workaround may be to instead redirect customers to the App Store app to redeem codes as described below.
 
-## Create revenueCat account [link](https://www.revenuecat.com/docs/projects)
+## Create revenueCat account [&#x270D;](https://www.revenuecat.com/docs/projects)
 RevenueCat provides a free trial for up to $10000 in revenue then you need to pay for the services. Create one revenueCat app and configure the platform-specific application for e.g Android and iOS. Application name, bundle identifier, App Store Connect App-Specific Shared Secret and key information need to add in order to complete the application configuration.
 
 Redirect apple subscription event notification directly to revenueCat [configure](https://www.revenuecat.com/docs/server-notifications). This configuration will speed up the event update in revenueCat and the status will be updated fast.
 
-## [Configure](https://www.revenuecat.com/docs/entitlements) Products
+## Configure Products [&#x270D;](https://www.revenuecat.com/docs/entitlements)
 RevenueCat has a mapping model to display the products to the customer in the form of offerings. Entitlement, Offering, and Packages in the revenueCat dashboard are the way to manage your display and package group.
 * Entitlement
   - An entitlement represents a level of access, features, or content that a user is "entitled" to.
@@ -47,10 +47,10 @@ RevenueCat has a mapping model to display the products to the customer in the fo
 * Packages
   - Each Offering you create should contain at least one Package that holds cross-platform products.
   
-### Configure [SDK](https://www.revenuecat.com/docs/installation) in Platform
+### Configure SDK in Platform [&#x270D;](https://www.revenuecat.com/docs/installation)
 You can configure SDK for iOS, Android, and react-native. follow the steps in the above link.
 
-### Displaying [Products](https://www.revenuecat.com/docs/displaying-products)
+### Displaying Products[&#x270D;](https://www.revenuecat.com/docs/displaying-products)
 If you've [configured Offerings](https://www.revenuecat.com/docs/entitlements) in RevenueCat, you can control which products are shown to users without requiring an app update. Building paywalls that are dynamic and can react to different product configurations gives you maximum flexibility to make remote updates.
 
 ### Making Purchases
@@ -123,10 +123,10 @@ extension AppDelegate: PurchasesDelegate {
 ```
 
 ## Manage Purchase after sale.
-### [Refund](https://www.revenuecat.com/docs/refunds)
+### Refund [&#x270D;](https://www.revenuecat.com/docs/refunds)
 RevenueCat can handle refunds across all platforms for both subscription and non-subscription products. As soon as RevenueCat detects a refund, the CustomerInfo will be updated to reflect the correct entitlement status - no action required on your part! If you have questions about refunds, take a look at [our community](https://community.revenuecat.com/general-questions-7/how-do-i-issue-a-refund-115) article covering the topic.
 
-### Upgrades, Downgrades, & Management [link](https://www.revenuecat.com/docs/managing-subscriptions)
+### Upgrades, Downgrades, & Management [&#x270D;](https://www.revenuecat.com/docs/managing-subscriptions)
 App Store
 
 There are no code changes required to support upgrades, downgrades, and crossgrades for iOS subscriptions in your app. A customer can choose to upgrade, downgrade, or crossgrade between subscriptions as often as they like.
@@ -138,7 +138,7 @@ Downgrade. A user selects a subscription that offers a lower level of service th
 Crossgrade. A user switches to a new subscription of the equivalent level. If the subscriptions are the same duration, the new subscription begins immediately. If the durations are different, the new subscription goes into effect at the next renewal date.
 You can refer to this [blog post](https://www-origin.revenuecat.com/blog/engineering/ios-subscription-groups-explained/) for more information on how to set up subscription groups in App Store Connect.
 
-### [Price Change](https://www.revenuecat.com/docs/price-changes)
+### Price Change [&#x270D;](https://www.revenuecat.com/docs/price-changes)
 Price change is trated by apple in certain ways please read this apple documentation for [more detail](https://developer.apple.com/app-store/subscriptions/#managing-prices-for-existing-subscribers)
 
 When a subscription price increases apple will send you notifications, mail, and in-app messages to update users about the price increase If the price change is a big amount apple may present a confirmation sheet to get users to opt-in for the new price. A decrease in price may silently renew without the user’s knowledge.
