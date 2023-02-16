@@ -24,7 +24,7 @@ Every product we configure must have an identifier that is unique across subscri
 
 Configure the introductory, Promotional, and offer code with a subscription if you need to give the customer a free trial or any discount on a subscription.
 
-1. Pay-up-front — The customer pays once for a period of time, e.g. $0.99 for 3 months. Allowed durations are 1, 2, 3, 6 and 12 months.
+1. Pay-up-front — The customer pays once for a period of time, e.g. $0.99 for 3 months. Allowed durations are 1, 2, 3, 6, and 12 months.
 2. Pay-as-you-go — The customer pays a reduced rate, each period, for a number of periods, e.g. $0.99 per month for 3 months. Allowed durations are 1-12 months. Can only be specified in months.
 3. Free — This is analogous to a free trial, the user receives 1 of a specified period free. The allowed durations are 3 days, 1 week, 2 weeks, 1 month, 2 months, 3 months, 6 months, and 1 year.
 
@@ -143,7 +143,7 @@ extension AppDelegate: PurchasesDelegate {
 ```
 
 ### Custom Attributes
-RevenueCat support custom attribute which becomes very usefull in some scenario to mark a customer or identifing a customer specific tags.
+RevenueCat support custom attribute which becomes very useful in some scenario to mark a customer or identify a customer-specific tag.
 
 ```swift
 Purchases.shared.attribution.setAttributes(["isRetainedUser": "True"])
@@ -165,7 +165,7 @@ Purchases.shared.checkTrialOrIntroDiscountEligibility(productIdentifiers: [forId
    * A is Eligible for introductory offer flag will be updated periodically. Configre your code based on this flag.
    
 ### Refund [&#x270D;](https://www.revenuecat.com/docs/refunds)
-RevenueCat can handle refunds across all platforms for both subscription and non-subscription products. As soon as RevenueCat detects a refund, the CustomerInfo will be updated to reflect the correct entitlement status - no action required on your part! If you have questions about refunds, take a look at [our community](https://community.revenuecat.com/general-questions-7/how-do-i-issue-a-refund-115) article covering the topic.
+RevenueCat can handle refunds across all platforms for both subscription and non-subscription products. As soon as RevenueCat detects a refund, the CustomerInfo will be updated to reflect the correct entitlement status - no action is required on your part! If you have questions about refunds, take a look at [our community](https://community.revenuecat.com/general-questions-7/how-do-i-issue-a-refund-115) article covering the topic.
 
 in iOS 15 User can request refund from application with a reason to select from.
 ```swift 
@@ -220,19 +220,20 @@ func initialiseRefundRequest(customerInfo: CustomerInfo) {
 
 Use Cases:
    * As per the apple documentation in US "All Purchase is final" policy applies. Based on which country you are serving different policies are engaged.
-   * Since all refund can be processed through apple payment procedure. After some grace period apple may refund the purchase price or less.
+   * Since all refunds can be processed through the apple payment procedure. After some grace period, apple may refund the purchase price or less.
 
 ### Billing Issues
-Customer Info object will have the status about any kind of subscription or billing issues. For example anytime user has requested refund or canceled or chage to lower subscrition plan. They might endup in billing issue. In such cases revenueCat will give two impotant flag
+The customer Info object will have the status of any kind of subscription or billing issues. For example, anytime a user has requested a refund or canceled or changed to a lower subscription plan. They might end up in a billing issue. In such cases, revenueCat will give two important flag
 **UnSubscribe Detected at**
+
 **Billing Issue Detected at**
 
-**Note:-** We can show flag or restrict user from accessing the access when this date are not nil in customer info object.
+**Note:-** We can show a flag or restrict the user from accessing the access when this date is not nil in the customer info object.
 
 ### Upgrades, Downgrades, & Management [&#x270D;](https://www.revenuecat.com/docs/managing-subscriptions)
 App Store
 
-There are no code changes required to support upgrades, downgrades, and crossgrades for iOS subscriptions in your app. A customer can choose to upgrade, downgrade, or crossgrade between subscriptions as often as they like.
+There are no code changes required to support upgrades, downgrades, and crossgrades for iOS subscriptions in your app. Customer can choose to upgrade, downgrade, or crossgrade between subscriptions as often as they like.
 
 According to Apple, when a customer changes their subscription level, access to the new product can vary depending on the change:
 
@@ -242,7 +243,7 @@ Crossgrade. A user switches to a new subscription of the equivalent level. If th
 You can refer to this [blog post](https://www-origin.revenuecat.com/blog/engineering/ios-subscription-groups-explained/) for more information on how to set up subscription groups in App Store Connect.
 
 ### Price Change [&#x270D;](https://www.revenuecat.com/docs/price-changes)
-Price change is trated by apple in certain ways please read this apple documentation for [more detail](https://developer.apple.com/app-store/subscriptions/#managing-prices-for-existing-subscribers)
+The price change is treated by apple in certain ways please read this apple documentation for [more detail](https://developer.apple.com/app-store/subscriptions/#managing-prices-for-existing-subscribers)
 
 When a subscription price increases apple will send you notifications, mail, and in-app messages to update users about the price increase If the price change is a big amount apple may present a confirmation sheet to get users to opt-in for the new price. A decrease in price may silently renew without the user’s knowledge.
 
