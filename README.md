@@ -107,6 +107,22 @@ func purchaseProductWith(package: Package, promoOffer: PromotionalOffer, complet
         Purchases.shared.purchase(package: package, promotionalOffer: promoOffer) {[weak self] transaction, customerInfo, error, userCancelled in
    }
  }
+ 
+ func getPromotionalOffer(package: Package, completion: @escaping (Result<PromotionalOffer, IAPError>) -> Void) {
+        if let discount = package.storeProduct.discounts.first {
+            Purchases.shared.getPromotionalOffer(forProductDiscount: discount, product: package.storeProduct) { (promoOffer, error) in
+                if let promoOffer = promoOffer {
+                    completion(.success(promoOffer))
+                    // Promotional Offer validated, show terms of your offer to your customers
+                } else if let error = error {
+                    completion(.failure(.pulicError(error: error)))
+                } else  {
+                    completion(.failure(.noPromoOffer))
+                    // Promotional Offer was not validated, default to normal package terms
+                }
+            }
+        }
+    }
 ```
 
 ### Checking Subscription Status
