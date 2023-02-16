@@ -144,6 +144,7 @@ Apple auto renewable can be configured with trail subscription. Which works in s
 Purchases.shared.checkTrialOrIntroDiscountEligibility(productIdentifiers: [forIdentifier]) { introEligibilityDict in
    log(introEligibilityDict)
 }
+```
 
    * After trial period subscription will be converted to renewal
    * Subscription will end if user cancels during trial period. 
@@ -207,7 +208,7 @@ func initialiseRefundRequest(customerInfo: CustomerInfo) {
 
 Use Cases:
    * As per the apple documentation in US "All Purchase is final" policy applies. Based on which country you are serving different policies are engaged.
-   * Since all refund can be processed through apple payment procedure. 
+   * Since all refund can be processed through apple payment procedure. After some grace period apple may refund the purchase price or less.
 
 ### Upgrades, Downgrades, & Management [&#x270D;](https://www.revenuecat.com/docs/managing-subscriptions)
 App Store
@@ -254,3 +255,5 @@ func logoutRevenueCat() {
     }
 }
 ```
+
+
