@@ -122,6 +122,13 @@ extension AppDelegate: PurchasesDelegate {
 }
 ```
 
+### Custom Attributes
+RevenueCat support custom attribute which becomes very usefull in some scenario to mark a customer or identifing a customer specific tags.
+
+```swift
+Purchases.shared.attribution.setAttributes(["isRetainedUser": "True"])
+```
+
 ## Manage Purchase after sale.
 ### Refund [&#x270D;](https://www.revenuecat.com/docs/refunds)
 RevenueCat can handle refunds across all platforms for both subscription and non-subscription products. As soon as RevenueCat detects a refund, the CustomerInfo will be updated to reflect the correct entitlement status - no action required on your part! If you have questions about refunds, take a look at [our community](https://community.revenuecat.com/general-questions-7/how-do-i-issue-a-refund-115) article covering the topic.
@@ -171,7 +178,3 @@ func logoutRevenueCat() {
     }
 }
 ```
-
-
-
-
