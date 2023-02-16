@@ -50,6 +50,14 @@ RevenueCat has a mapping model to display the products to the customer in the fo
 ### Configure SDK in Platform [&#x270D;](https://www.revenuecat.com/docs/installation)
 You can configure SDK for iOS, Android, and react-native. follow the steps in the above link.
 
+```swift
+Purchases.logLevel = .debug
+let configuration = Configuration.builder(withAPIKey: RevenueCatConfiguration.apiKey)
+let build = configuration.with(usesStoreKit2IfAvailable: true).with(appUserID: "UserID").build()
+Purchases.configure(with: build)
+Purchases.shared.delegate = self
+```
+
 ### Displaying Products[&#x270D;](https://www.revenuecat.com/docs/displaying-products)
 If you've [configured Offerings](https://www.revenuecat.com/docs/entitlements) in RevenueCat, you can control which products are shown to users without requiring an app update. Building paywalls that are dynamic and can react to different product configurations gives you maximum flexibility to make remote updates.
 
