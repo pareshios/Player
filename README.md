@@ -20,6 +20,9 @@ We need to configure our subscription | In-App Purchases in App store connect. T
 All other subscriptions except Auto Renewable can be configured individually, But Auto renewable must have a subscription group. Under a subscription group, One can add multiple subscriptions and the user can subscribe to one of them.
 For Auto-renewable subscription localisation and grace period, a setting is required.
 
+#### How to create subscription group and grace period
+![](https://github.com/pareshios/Player/blob/main/SubscriptionGroupAndGracePeriod.png)
+
 Every product we configure must have an identifier that is unique across subscriptions. which can be used to make any transaction with Storekit.
 
 Configure the introductory, Promotional, and offer code with a subscription if you need to give the customer a free trial or any discount on a subscription.
@@ -37,6 +40,24 @@ A workaround may be to instead redirect customers to the App Store app to redeem
 RevenueCat provides a free trial for up to $10000 in revenue then you need to pay for the services. Create one revenueCat app and configure the platform-specific application for e.g Android and iOS. Application name, bundle identifier, App Store Connect App-Specific Shared Secret and key information need to add in order to complete the application configuration.
 
 Redirect apple subscription event notification directly to revenueCat [configure](https://www.revenuecat.com/docs/server-notifications). This configuration will speed up the event update in revenueCat and the status will be updated fast.
+#### App Specific Shared Secrete
+Create App Specific Shared Secrete in App Store
+![](https://github.com/pareshios/Player/blob/main/appSpecifyAppstoreconnect.png)
+
+Configure App Specific Shared Secrete in RevenueCat
+![](https://github.com/pareshios/Player/blob/main/AppSpecificSecreteAdd.png)
+
+#### In App Purchase Key Configuration
+Generate key in AppStore Connect
+![](https://github.com/pareshios/Player/blob/main/Keygeneration.png)
+
+Add key in RevenueCat
+![]()
+
+#### RevenueCat Public Key
+
+To initialise the SDK we need public key from revenueCat. You can get it from revenueCat dashboard. Shown in below screen shot.
+![](https://github.com/pareshios/Player/blob/main/PublicKeyRevenueCat.png)
 
 ## Configure Products [&#x270D;](https://www.revenuecat.com/docs/entitlements)
 RevenueCat has a mapping model to display the products to the customer in the form of offerings. Entitlement, Offering, and Packages in the revenueCat dashboard are the way to manage your display and package group.
