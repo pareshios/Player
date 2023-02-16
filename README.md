@@ -61,6 +61,18 @@ Purchases.shared.delegate = self
 ### Displaying Products[&#x270D;](https://www.revenuecat.com/docs/displaying-products)
 If you've [configured Offerings](https://www.revenuecat.com/docs/entitlements) in RevenueCat, you can control which products are shown to users without requiring an app update. Building paywalls that are dynamic and can react to different product configurations gives you maximum flexibility to make remote updates.
 
+## Restore Purchases
+When the application initialised, we can get the customer info from the revenueCat to check the subscription information after that we can manually set the subscription for the given userid. So restore purchase is not needed at all. Still user can have a option to retore their purchase using following method
+
+```swift
+Purchases.shared.restorePurchases { (customerInfo, error) in
+   guard let customerInfo = customerInfo else {
+      return completion(.failure(IAPError.unknown))
+   }
+   print(customerInfo)
+}
+```
+
 ### Making Purchases
 Process a transaction with Apple or Google
 
