@@ -10,10 +10,10 @@ Note: Add tax and billing information in the app store connect before configurin
 
 We need to configure our subscription | In-App Purchases in App store connect. There are mainly four types of subscriptions available.
 
-* In-App Purchase
+* **In-App Purchase**
     * Consumable
     * Non-Consumable
-* Subscription
+* **Subscription**
     * Auto renewable
     * No Renewable
     
@@ -256,10 +256,10 @@ Use Cases:
    * Since all refunds can be processed through the apple payment procedure. After some grace period, apple may refund the purchase price or less.
 
 ### Billing Issues
-The customer Info object will have the status of any kind of subscription or billing issues. For example, anytime a user has requested a refund or canceled or changed to a lower subscription plan. They might end up in a billing issue. In such cases, revenueCat will give two important flag
-**UnSubscribe Detected at**
+The customer Info object will have the status of any kind of subscription or billing issues. For example, anytime a user has requested a refund or canceled or changed to a lower subscription plan. They might end up in a billing issue. In such cases, revenueCat will give two important flag.
 
-**Billing Issue Detected at**
+   * **UnSubscribe Detected at**
+   * **Billing Issue Detected at**
 
 **Note:-** We can show a flag or restrict the user from accessing the access when this date is not nil in the customer info object.
 
