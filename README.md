@@ -138,8 +138,76 @@ Purchases.shared.attribution.setAttributes(["isRetainedUser": "True"])
 ```
 
 ## Manage Purchase after sale.
+### Trial Subscription
+Apple auto renewable can be configured with trail subscription. Which works in seamless manner.
+```swift
+Purchases.shared.checkTrialOrIntroDiscountEligibility(productIdentifiers: [forIdentifier]) { introEligibilityDict in
+   log(introEligibilityDict)
+}
+
+   * After trial period subscription will be converted to renewal
+   * Subscription will end if user cancels during trial period. 
+   * He may not able to cancel the renewal if he cancels the trial subscription before 24 hours of expiration. 
+   * Different subscription group can avail trial once.
+   * A is Eligible for introductory offer flag will be updated periodically. Configre your code based on this flag.
+   
 ### Refund [&#x270D;](https://www.revenuecat.com/docs/refunds)
 RevenueCat can handle refunds across all platforms for both subscription and non-subscription products. As soon as RevenueCat detects a refund, the CustomerInfo will be updated to reflect the correct entitlement status - no action required on your part! If you have questions about refunds, take a look at [our community](https://community.revenuecat.com/general-questions-7/how-do-i-issue-a-refund-115) article covering the topic.
+
+in iOS 15 User can request refund from application with a reason to select from.
+```swift 
+func refundPurchase() {
+        if #available(iOS 15.0, *) {
+            IAPManager.shared.getCustomerInfo { result in
+                switch result {
+                    case .failure(let error):
+                        self.showAlert(alertText: "Info", alertMessage: error.localizedDescription)
+                    case .success(let isSuccess):
+                        if isSuccess {
+                            guard let customerInfo = IAPManager.shared.customerInfo else { return
+                            }
+                            self.initialiseRefundRequest(customerInfo: customerInfo)
+                        }
+                }
+            }
+        } else {
+            if let url = URL(string: "https://support.apple.com/en-us/HT204084") {
+                UIApplication.shared.openURL(url)
+            } else {
+                self.showAlert(alertText: "Refund Status", alertMessage: "Refund requests not supported. Please consider updating to iOS 15 or later.")
+            }
+        }
+    }
+```
+
+```swift
+func initialiseRefundRequest(customerInfo: CustomerInfo) {
+        guard let activePackage = self.package else { return }
+        if let activeEntitlement = IAPManager.shared.getActiveEntitlements(forPackage: activePackage) {
+            IAPManager.shared.refundRequest(productID: activeEntitlement.productIdentifier) { refundResult in
+                switch refundResult {
+                    case .failure(let error):
+                        self.showAlert(alertText: "Refund Status", alertMessage: error.localizedDescription)
+                    case .success(let refundStatus):
+                        switch refundStatus {
+                            case .success:
+                                self.showAlert(alertText: "Refund Status", alertMessage: "Refund request submitted!")
+                            case .userCancelled:
+                                print("Refund request cancelled")
+                            case .error:
+                                self.showAlert(alertText: "Refund Status", alertMessage: "Issue submitting refund request")
+                        }
+                }
+            }
+        } else {
+            self.showAlert(alertText: "Refund Status", alertMessage: "No active subscription found")
+        }
+    }
+```
+
+Use Cases:
+   * As per the apple documentation in US "All Purchase is final" policy applies. Based on which country you are serving different policies are engaged.
+   * Since all refund can be processed through apple payment procedure. 
 
 ### Upgrades, Downgrades, & Management [&#x270D;](https://www.revenuecat.com/docs/managing-subscriptions)
 App Store
