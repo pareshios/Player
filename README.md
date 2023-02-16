@@ -102,12 +102,15 @@ Purchase without promotional offer
 ```
 
 Purchase with Promotional offer
+Promotional offers are very useful to win back customers and these offers should be limited to specific users only. To benefit the user with the promotional offer we can show them some special UI and once they select it, purchase it with the package which supports that promotion.
+
 ``` swift
 func purchaseProductWith(package: Package, promoOffer: PromotionalOffer, completion: @escaping (Result<Bool, IAPError>) -> Void) {
         Purchases.shared.purchase(package: package, promotionalOffer: promoOffer) {[weak self] transaction, customerInfo, error, userCancelled in
    }
  }
  
+ Get Promotional offer for the package
  func getPromotionalOffer(package: Package, completion: @escaping (Result<PromotionalOffer, IAPError>) -> Void) {
         if let discount = package.storeProduct.discounts.first {
             Purchases.shared.getPromotionalOffer(forProductDiscount: discount, product: package.storeProduct) { (promoOffer, error) in
