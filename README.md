@@ -52,7 +52,7 @@ Generate key in AppStore Connect
 ![](https://github.com/pareshios/Player/blob/main/Keygeneration.png)
 
 Add key in RevenueCat
-![]()
+![](https://github.com/pareshios/Player/blob/main/configurep8inrevenueCat.png)
 
 #### RevenueCat Public Key
 
