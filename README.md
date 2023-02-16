@@ -31,7 +31,7 @@ Configure the introductory, Promotional, and offer code with a subscription if y
 **[Offer code]** (https://www.revenuecat.com/docs/ios-subscription-offers#offer-codes)
 
 **Note:** - Since launch, Apple's in-app Offer Code redemption sheet has proven to be extremely unstable. For example, the sheet may not connect, may not dismiss after a successful redemption, and may not accept valid codes. Additionally, sandbox and TestFlight behavior has been seen to be inconsistent.
-A workaround may be to instead redirect customers to the App Store app to redeem codes as described below.
+A workaround may be to instead redirect customers to the App Store app to redeem codes as described above.
 
 ## Create revenueCat account [&#x270D;](https://www.revenuecat.com/docs/projects)
 RevenueCat provides a free trial for up to $10000 in revenue then you need to pay for the services. Create one revenueCat app and configure the platform-specific application for e.g Android and iOS. Application name, bundle identifier, App Store Connect App-Specific Shared Secret and key information need to add in order to complete the application configuration.
