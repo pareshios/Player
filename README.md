@@ -28,7 +28,7 @@ Configure the introductory, Promotional, and offer code with a subscription if y
 2. Pay-as-you-go — The customer pays a reduced rate, each period, for a number of periods, e.g. $0.99 per month for 3 months. Allowed durations are 1-12 months. Can only be specified in months.
 3. Free — This is analogous to a free trial, the user receives 1 of a specified period free. The allowed durations are 3 days, 1 week, 2 weeks, 1 month, 2 months, 3 months, 6 months, and 1 year.
 
-** [Offer code] (https://www.revenuecat.com/docs/ios-subscription-offers#offer-codes)
+**[Offer code]** (https://www.revenuecat.com/docs/ios-subscription-offers#offer-codes)
 
 **Note:** - Since launch, Apple's in-app Offer Code redemption sheet has proven to be extremely unstable. For example, the sheet may not connect, may not dismiss after a successful redemption, and may not accept valid codes. Additionally, sandbox and TestFlight behavior has been seen to be inconsistent.
 A workaround may be to instead redirect customers to the App Store app to redeem codes as described below.
@@ -221,6 +221,13 @@ func initialiseRefundRequest(customerInfo: CustomerInfo) {
 Use Cases:
    * As per the apple documentation in US "All Purchase is final" policy applies. Based on which country you are serving different policies are engaged.
    * Since all refund can be processed through apple payment procedure. After some grace period apple may refund the purchase price or less.
+
+### Billing Issues
+Customer Info object will have the status about any kind of subscription or billing issues. For example anytime user has requested refund or canceled or chage to lower subscrition plan. They might endup in billing issue. In such cases revenueCat will give two impotant flag
+**UnSubscribe Detected at**
+**Billing Issue Detected at**
+
+**Note:-** We can show flag or restrict user from accessing the access when this date are not nil in customer info object.
 
 ### Upgrades, Downgrades, & Management [&#x270D;](https://www.revenuecat.com/docs/managing-subscriptions)
 App Store
