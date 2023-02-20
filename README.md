@@ -15,7 +15,7 @@ We need to configure our subscription | In-App Purchases in App store connect. T
     * Non-Consumable
 * **Subscription**
     * Auto renewable
-    * No Renewable
+    * Non-Renewable
     
 All other subscriptions except Auto Renewable can be configured individually, But Auto renewable must have a subscription group. Under a subscription group, One can add multiple subscriptions and the user can subscribe to one of them.
 For Auto-renewable subscription localisation and grace period, a setting is required.
