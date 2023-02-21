@@ -207,7 +207,7 @@ Purchases.shared.attribution.setAttributes(["isRetainedUser": "True"])
 
 ## Manage Purchase after sale.
 ### Trial Subscription
-Apple auto renewable can be configured with trail subscription. Which works in seamless manner.
+Apple auto-renewable can be configured with a trial subscription. Which works in a seamless manner. Once an introductory offer is created, there is no way to edit it like sometimes we need to edit the period or type of offer. If the end date has not been set then the new date can be configured, The offer will end at the configured date or it can be discarded by ending the offer from App Store connect.
 ```swift
 Purchases.shared.checkTrialOrIntroDiscountEligibility(productIdentifiers: [forIdentifier]) { introEligibilityDict in
    log(introEligibilityDict)
